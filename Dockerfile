@@ -19,9 +19,6 @@ COPY . .
 # Compilar TypeScript
 RUN npm run build
 
-# Debug: verificar que dist existe
-RUN ls -la /app/dist/ && echo "dist/main.js exists:" && ls /app/dist/main.js
-
 # Eliminar devDependencies después del build
 RUN npm prune --production
 
