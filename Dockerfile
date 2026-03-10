@@ -1,5 +1,8 @@
 FROM node:20-slim
 
+# Instalar OpenSSL para que Prisma funcione correctamente
+RUN apt-get update -y && apt-get install -y openssl && rm -rf /var/lib/apt/lists/*
+
 WORKDIR /app
 
 # Copiar dependencias
