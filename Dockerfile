@@ -6,8 +6,8 @@ WORKDIR /app
 COPY package*.json ./
 COPY prisma ./prisma/
 
-# Instalar dependencias
-RUN npm ci --only=production
+# Instalar TODAS las dependencias (incluyendo devDeps para compilar)
+RUN npm ci
 RUN npm install -g @nestjs/cli
 
 # Generar cliente de Prisma
@@ -18,6 +18,9 @@ COPY . .
 
 # Compilar TypeScript
 RUN npm run build
+
+# Eliminar devDependencies después del build
+RUN npm prune --production
 
 EXPOSE 3001
 
