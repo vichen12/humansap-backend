@@ -139,26 +139,58 @@ export class KpisService {
     const ahora = new Date();
     const inicio = new Date(ahora.getFullYear(), ahora.getMonth(), 1);
 
-    const [totalVentas, totalLeads, topVendedores, peorRendimiento] = await Promise.all([
+    // Ventas de los últimos 6 meses para el gráfico
+    const ventasPorMes: { mes: string; ventas: number; prima: number }[] = [];
+    for (let i = 5; i >= 0; i--) {
+      const mesInicio = new Date(ahora.getFullYear(), ahora.getMonth() - i, 1);
+      const mesFin = new Date(ahora.getFullYear(), ahora.getMonth() - i + 1, 0);
+      const agg = await this.prisma.venta.aggregate({
+        where: { fechaVenta: { gte: mesInicio, lte: mesFin }, estado: 'vigente' },
+        _sum: { montoPrima: true },
+        _count: true,
+      });
+      const label = mesInicio.toLocaleDateString('es-AR', { month: 'short', year: '2-digit' });
+      ventasPorMes.push({ mes: label, ventas: agg._count, prima: Number(agg._sum.montoPrima ?? 0) });
+    }
+
+    const [
+      totalVentas,
+      leadsActivos,
+      leadsTotal,
+      vendedoresActivos,
+      topVendedores,
+      leadsPorEstado,
+    ] = await Promise.all([
       this.prisma.venta.aggregate({
         where: { fechaVenta: { gte: inicio }, estado: 'vigente' },
         _sum: { montoPrima: true, montoComision: true },
         _count: true,
       }),
+      this.prisma.lead.count({
+        where: { estado: { in: ['nuevo', 'contactado', 'en_proceso'] } },
+      }),
       this.prisma.lead.count({ where: { createdAt: { gte: inicio } } }),
+      this.prisma.profile.count({ where: { activo: true, rol: { not: 'admin' } } }),
       this.prisma.vendedorKpisPeriodo.findMany({
         where: { periodoTipo: PeriodoTipo.mensual, periodoInicio: inicio },
         orderBy: { puntos: 'desc' },
-        take: 5,
-        include: { perfil: { select: { nombre: true, apellido: true, avatarUrl: true } } },
+        take: 10,
+        include: { perfil: { select: { id: true, nombre: true, apellido: true, avatarUrl: true } } },
       }),
-      this.prisma.vendedorKpisPeriodo.findMany({
-        where: { periodoTipo: PeriodoTipo.mensual, periodoInicio: inicio },
-        orderBy: { puntos: 'asc' },
-        take: 5,
-        include: { perfil: { select: { nombre: true, apellido: true } } },
+      this.prisma.lead.groupBy({
+        by: ['estado'],
+        _count: true,
       }),
     ]);
+
+    // Tasa de conversion global del mes
+    const leadsContactadosMes = await this.prisma.leadActividad.count({
+      where: { tipo: 'contactado', createdAt: { gte: inicio } },
+    });
+    const tasaConversionGlobal =
+      leadsContactadosMes > 0
+        ? Math.round((totalVentas._count / leadsContactadosMes) * 100)
+        : 0;
 
     return {
       mes: { inicio },
@@ -167,9 +199,13 @@ export class KpisService {
         prima_total: totalVentas._sum.montoPrima,
         comision_total: totalVentas._sum.montoComision,
       },
-      leads_totales: totalLeads,
+      leads_activos: leadsActivos,
+      leads_totales: leadsTotal,
+      vendedores_activos: vendedoresActivos,
+      tasa_conversion_global: tasaConversionGlobal,
       top_vendedores: topVendedores,
-      peor_rendimiento: peorRendimiento,
+      ventas_por_mes: ventasPorMes,
+      leads_por_estado: leadsPorEstado,
     };
   }
 

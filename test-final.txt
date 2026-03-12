@@ -1,0 +1,111 @@
+﻿
+Running 62 tests using 1 worker
+
+  Ô£ÿ   1 playwright-tests\04-leads.spec.ts:35:7 ÔÇ║ POST /leads (admin only) ÔÇ║ admin can create a lead (113ms)
+  Ô£ô   2 playwright-tests\04-leads.spec.ts:53:7 ÔÇ║ POST /leads (admin only) ÔÇ║ admin can create lead without zona (497ms)
+  Ô£ô   3 playwright-tests\04-leads.spec.ts:64:7 ÔÇ║ POST /leads (admin only) ÔÇ║ vendedor cannot create leads ÔåÆ 403 (128ms)
+  Ô£ô   4 playwright-tests\04-leads.spec.ts:74:7 ÔÇ║ POST /leads (admin only) ÔÇ║ missing nombre ÔåÆ 400 (116ms)
+  Ô£ô   5 playwright-tests\04-leads.spec.ts:83:7 ÔÇ║ POST /leads (admin only) ÔÇ║ invalid origen ÔåÆ 400 (101ms)
+  Ô£ô   6 playwright-tests\04-leads.spec.ts:93:7 ÔÇ║ POST /leads (admin only) ÔÇ║ invalid email ÔåÆ 400 (105ms)
+  Ô£ô   7 playwright-tests\04-leads.spec.ts:104:7 ÔÇ║ POST /leads (admin only) ÔÇ║ no token ÔåÆ 401 (3ms)
+  Ô£ô   8 playwright-tests\04-leads.spec.ts:114:7 ÔÇ║ GET /leads ÔÇ║ admin gets all leads (336ms)
+  Ô£ô   9 playwright-tests\04-leads.spec.ts:121:7 ÔÇ║ GET /leads ÔÇ║ vendedor gets leads (filtered by zone/assignment) (524ms)
+  Ô£ô  10 playwright-tests\04-leads.spec.ts:128:7 ÔÇ║ GET /leads ÔÇ║ no token ÔåÆ 401 (4ms)
+  -  11 playwright-tests\04-leads.spec.ts:135:7 ÔÇ║ GET /leads/:id ÔÇ║ admin can get lead by id
+  Ô£ô  12 playwright-tests\04-leads.spec.ts:143:7 ÔÇ║ GET /leads/:id ÔÇ║ non-existent lead ÔåÆ 404 (345ms)
+  -  13 playwright-tests\04-leads.spec.ts:148:7 ÔÇ║ GET /leads/:id ÔÇ║ no token ÔåÆ 401
+  -  14 playwright-tests\04-leads.spec.ts:171:7 ÔÇ║ PATCH /leads/:id/tomar ÔÇ║ vendedor can tomar a lead ÔåÆ state becomes tomado
+  -  15 playwright-tests\04-leads.spec.ts:180:7 ÔÇ║ PATCH /leads/:id/tomar ÔÇ║ taking an already-taken lead ÔåÆ 400 or 409
+  Ô£ô  16 playwright-tests\04-leads.spec.ts:186:7 ÔÇ║ PATCH /leads/:id/tomar ÔÇ║ non-existent lead ÔåÆ 404 (172ms)
+  -  17 playwright-tests\04-leads.spec.ts:196:7 ÔÇ║ PATCH /leads/:id/tomar ÔÇ║ no token ÔåÆ 401
+  -  18 playwright-tests\04-leads.spec.ts:224:7 ÔÇ║ PATCH /leads/:id/estado ÔÇ║ vendedor can update estado of owned lead
+  -  19 playwright-tests\04-leads.spec.ts:235:7 ÔÇ║ PATCH /leads/:id/estado ÔÇ║ invalid estado ÔåÆ 400
+  -  20 playwright-tests\04-leads.spec.ts:243:7 ÔÇ║ PATCH /leads/:id/estado ÔÇ║ no token ÔåÆ 401
+  Ô£ô  21 playwright-tests\10-notificaciones.spec.ts:38:7 ÔÇ║ GET /notificaciones ÔÇ║ vendedor gets own notifications (541ms)
+  Ô£ô  22 playwright-tests\10-notificaciones.spec.ts:55:7 ÔÇ║ GET /notificaciones ÔÇ║ admin gets own notifications (209ms)
+  Ô£ô  23 playwright-tests\10-notificaciones.spec.ts:62:7 ÔÇ║ GET /notificaciones ÔÇ║ returns at most 30 notifications (313ms)
+  Ô£ô  24 playwright-tests\10-notificaciones.spec.ts:69:7 ÔÇ║ GET /notificaciones ÔÇ║ no token ÔåÆ 401 (2ms)
+  Ô£ô  25 playwright-tests\10-notificaciones.spec.ts:76:7 ÔÇ║ PATCH /notificaciones/:id/leer ÔÇ║ vendedor can mark notification as read (328ms)
+  Ô£ô  26 playwright-tests\10-notificaciones.spec.ts:91:7 ÔÇ║ PATCH /notificaciones/:id/leer ÔÇ║ non-existent ÔåÆ 4xx (backend returns 500, no NotFoundException handler) (208ms)
+  Ô£ô  27 playwright-tests\10-notificaciones.spec.ts:101:7 ÔÇ║ PATCH /notificaciones/:id/leer ÔÇ║ no token ÔåÆ 401 (3ms)
+  Ô£ô  28 playwright-tests\10-notificaciones.spec.ts:111:7 ÔÇ║ PATCH /notificaciones/leer-todas ÔÇ║ vendedor can mark all notifications as read (521ms)
+  Ô£ô  29 playwright-tests\10-notificaciones.spec.ts:116:7 ÔÇ║ PATCH /notificaciones/leer-todas ÔÇ║ admin can mark all their notifications as read (454ms)
+  Ô£ô  30 playwright-tests\10-notificaciones.spec.ts:121:7 ÔÇ║ PATCH /notificaciones/leer-todas ÔÇ║ after leer-todas, all notifications are read (792ms)
+  Ô£ô  31 playwright-tests\10-notificaciones.spec.ts:130:7 ÔÇ║ PATCH /notificaciones/leer-todas ÔÇ║ no token ÔåÆ 401 (2ms)
+  Ô£ô  32 playwright-tests\11-kpis.spec.ts:27:7 ÔÇ║ GET /kpis/dashboard ÔÇ║ vendedor gets own dashboard KPIs (779ms)
+  Ô£ô  33 playwright-tests\11-kpis.spec.ts:42:7 ÔÇ║ GET /kpis/dashboard ÔÇ║ vendedor gets KPIs filtered by mes + anio (447ms)
+  Ô£ô  34 playwright-tests\11-kpis.spec.ts:50:7 ÔÇ║ GET /kpis/dashboard ÔÇ║ admin can also access dashboard KPIs (434ms)
+  Ô£ô  35 playwright-tests\11-kpis.spec.ts:55:7 ÔÇ║ GET /kpis/dashboard ÔÇ║ no token ÔåÆ 401 (2ms)
+  Ô£ô  36 playwright-tests\11-kpis.spec.ts:62:7 ÔÇ║ GET /kpis/admin ÔÇ║ admin gets admin dashboard data (660ms)
+  Ô£ô  37 playwright-tests\11-kpis.spec.ts:71:7 ÔÇ║ GET /kpis/admin ÔÇ║ vendedor cannot access admin KPIs ÔåÆ 403 (103ms)
+  Ô£ô  38 playwright-tests\11-kpis.spec.ts:76:7 ÔÇ║ GET /kpis/admin ÔÇ║ no token ÔåÆ 401 (2ms)
+  Ô£ô  39 playwright-tests\11-kpis.spec.ts:83:7 ÔÇ║ POST /kpis/recalcular (admin only) ÔÇ║ admin can trigger KPI recalculation (2.4s)
+  Ô£ô  40 playwright-tests\11-kpis.spec.ts:89:7 ÔÇ║ POST /kpis/recalcular (admin only) ÔÇ║ vendedor cannot trigger recalculation ÔåÆ 403 (189ms)
+  Ô£ô  41 playwright-tests\11-kpis.spec.ts:94:7 ÔÇ║ POST /kpis/recalcular (admin only) ÔÇ║ no token ÔåÆ 401 (3ms)
+  Ô£ô  42 playwright-tests\12-ranking.spec.ts:34:7 ÔÇ║ GET /ranking/activo ÔÇ║ vendedor can get active ranking (275ms)
+  Ô£ô  43 playwright-tests\12-ranking.spec.ts:48:7 ÔÇ║ GET /ranking/activo ÔÇ║ admin can get active ranking (172ms)
+  Ô£ô  44 playwright-tests\12-ranking.spec.ts:53:7 ÔÇ║ GET /ranking/activo ÔÇ║ no token ÔåÆ 401 (3ms)
+  Ô£ô  45 playwright-tests\12-ranking.spec.ts:60:7 ÔÇ║ GET /ranking/periodos ÔÇ║ admin gets all ranking periods (273ms)
+  Ô£ô  46 playwright-tests\12-ranking.spec.ts:67:7 ÔÇ║ GET /ranking/periodos ÔÇ║ no token ÔåÆ 401 (2ms)
+  Ô£ô  47 playwright-tests\12-ranking.spec.ts:74:7 ÔÇ║ POST /ranking/periodos (admin only) ÔÇ║ admin can create a ranking period (274ms)
+  Ô£ô  48 playwright-tests\12-ranking.spec.ts:88:7 ÔÇ║ POST /ranking/periodos (admin only) ÔÇ║ vendedor cannot create periods ÔåÆ 403 (103ms)
+  Ô£ô  49 playwright-tests\12-ranking.spec.ts:97:7 ÔÇ║ POST /ranking/periodos (admin only) ÔÇ║ missing nombre ÔåÆ service creates with undefined (test backend handling) (92ms)
+  Ô£ô  50 playwright-tests\12-ranking.spec.ts:108:7 ÔÇ║ POST /ranking/periodos (admin only) ÔÇ║ no token ÔåÆ 401 (2ms)
+  Ô£ÿ  51 playwright-tests\12-ranking.spec.ts:118:7 ÔÇ║ GET /ranking/periodos/:id ÔÇ║ admin can get ranking by period id (305ms)
+  Ô£ô  52 playwright-tests\12-ranking.spec.ts:128:7 ÔÇ║ GET /ranking/periodos/:id ÔÇ║ non-existent ÔåÆ 4xx or 200 empty (backend returns 200 for unknown id) (689ms)
+  -  53 playwright-tests\12-ranking.spec.ts:138:7 ÔÇ║ GET /ranking/periodos/:id ÔÇ║ no token ÔåÆ 401
+  -  54 playwright-tests\12-ranking.spec.ts:146:7 ÔÇ║ POST /ranking/periodos/:id/cerrar (admin only) ÔÇ║ admin can close a ranking period
+  -  55 playwright-tests\12-ranking.spec.ts:154:7 ÔÇ║ POST /ranking/periodos/:id/cerrar (admin only) ÔÇ║ closing already-closed period ÔåÆ 4xx
+  -  56 playwright-tests\12-ranking.spec.ts:160:7 ÔÇ║ POST /ranking/periodos/:id/cerrar (admin only) ÔÇ║ vendedor cannot close periods ÔåÆ 403
+  Ô£ô  57 playwright-tests\12-ranking.spec.ts:168:7 ÔÇ║ GET /ranking/config (admin only) ÔÇ║ admin can get ranking config (315ms)
+  Ô£ô  58 playwright-tests\12-ranking.spec.ts:180:7 ÔÇ║ GET /ranking/config (admin only) ÔÇ║ vendedor cannot access ranking config ÔåÆ 403 (115ms)
+  Ô£ô  59 playwright-tests\12-ranking.spec.ts:185:7 ÔÇ║ GET /ranking/config (admin only) ÔÇ║ no token ÔåÆ 401 (3ms)
+  Ô£ô  60 playwright-tests\12-ranking.spec.ts:192:7 ÔÇ║ PATCH /ranking/config/:id (admin only) ÔÇ║ admin can update ranking weights (318ms)
+  Ô£ô  61 playwright-tests\12-ranking.spec.ts:200:7 ÔÇ║ PATCH /ranking/config/:id (admin only) ÔÇ║ vendedor cannot update ranking config ÔåÆ 403 (109ms)
+  Ô£ô  62 playwright-tests\12-ranking.spec.ts:208:7 ÔÇ║ PATCH /ranking/config/:id (admin only) ÔÇ║ restore original weights (334ms)
+
+
+  1) playwright-tests\04-leads.spec.ts:35:7 ÔÇ║ POST /leads (admin only) ÔÇ║ admin can create a lead ÔöÇÔöÇÔöÇ
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      44 |     if (zonaId) leadsData.zonaId = zonaId;
+      45 |     const res = await authPost(request, adminToken, '/leads', leadsData);
+    > 46 |     expect(res.ok()).toBe(true); // 201 Created
+         |                      ^
+      47 |     const body = await res.json();
+      48 |     expect(body).toHaveProperty('id');
+      49 |     expect(body.estado).toBe('nuevo');
+        at C:\Users\viche\Desktop\crm\backend\playwright-tests\04-leads.spec.ts:46:22
+
+  2) playwright-tests\12-ranking.spec.ts:118:7 ÔÇ║ GET /ranking/periodos/:id ÔÇ║ admin can get ranking by period id 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoHaveProperty[2m([22m[32mpath[39m[2m)[22m
+
+    Expected path: [32m"id"[39m
+    Received path: [31m[][39m
+
+    Received value: [31m[][39m
+
+      123 |     // Response may be a period object or { id, ... } directly
+      124 |     const period = body.id ? body : (Array.isArray(body.resultados) ? body.resultados[0] : body);
+    > 125 |     expect(period).toHaveProperty('id');
+          |                    ^
+      126 |   });
+      127 |
+      128 |   test('non-existent ÔåÆ 4xx or 200 empty (backend returns 200 for unknown id)', async ({ request }) => {
+        at C:\Users\viche\Desktop\crm\backend\playwright-tests\12-ranking.spec.ts:125:20
+
+  2 failed
+    playwright-tests\04-leads.spec.ts:35:7 ÔÇ║ POST /leads (admin only) ÔÇ║ admin can create a lead ÔöÇÔöÇÔöÇÔöÇ
+    playwright-tests\12-ranking.spec.ts:118:7 ÔÇ║ GET /ranking/periodos/:id ÔÇ║ admin can get ranking by period id 
+  12 skipped
+  48 passed (21.7s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

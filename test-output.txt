@@ -1,0 +1,96 @@
+﻿
+Running 29 tests using 1 worker
+
+  Ô£ÿ   1 playwright-tests\01-auth.spec.ts:16:7 ÔÇ║ POST /auth/login ÔÇ║ returns 2xx + tokens on valid admin credentials (331ms)
+  Ô£ÿ   2 playwright-tests\01-auth.spec.ts:29:7 ÔÇ║ POST /auth/login ÔÇ║ returns 2xx + tokens on valid vendedor credentials (268ms)
+  Ô£ô   3 playwright-tests\01-auth.spec.ts:39:7 ÔÇ║ POST /auth/login ÔÇ║ returns 401 on wrong password (128ms)
+  Ô£ô   4 playwright-tests\01-auth.spec.ts:46:7 ÔÇ║ POST /auth/login ÔÇ║ returns 401 on non-existent email (68ms)
+  Ô£ô   5 playwright-tests\01-auth.spec.ts:53:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on missing email (3ms)
+  Ô£ô   6 playwright-tests\01-auth.spec.ts:60:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on missing password (3ms)
+  Ô£ô   7 playwright-tests\01-auth.spec.ts:67:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on password too short (< 6 chars) (3ms)
+  Ô£ô   8 playwright-tests\01-auth.spec.ts:74:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on invalid email format (7ms)
+  Ô£ô   9 playwright-tests\01-auth.spec.ts:81:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on empty body (5ms)
+  Ô£ô  10 playwright-tests\01-auth.spec.ts:86:7 ÔÇ║ POST /auth/login ÔÇ║ response does not leak passwordHash (248ms)
+  Ô£ÿ  11 playwright-tests\01-auth.spec.ts:102:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns new token pair on valid refresh token (250ms)
+  Ô£ô  12 playwright-tests\01-auth.spec.ts:122:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns 4xx on invalid refresh token string (86ms)
+  Ô£ô  13 playwright-tests\01-auth.spec.ts:129:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns 4xx on missing refreshToken field (4ms)
+  Ô£ô  14 playwright-tests\01-auth.spec.ts:138:7 ÔÇ║ POST /auth/logout ÔÇ║ returns 2xx on valid logout and token becomes invalid (459ms)
+  Ô£ô  15 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /users/me ÔåÆ 401 without token (9ms)
+  Ô£ô  16 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /leads ÔåÆ 401 without token (4ms)
+  Ô£ô  17 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /ventas ÔåÆ 401 without token (4ms)
+  Ô£ô  18 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /kpis/dashboard ÔåÆ 401 without token (4ms)
+  Ô£ô  19 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /clientes ÔåÆ 401 without token (5ms)
+  Ô£ô  20 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /consultas ÔåÆ 401 without token (5ms)
+  Ô£ô  21 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /noticias ÔåÆ 401 without token (5ms)
+  Ô£ô  22 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /documentos ÔåÆ 401 without token (4ms)
+  Ô£ô  23 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /notificaciones ÔåÆ 401 without token (4ms)
+  Ô£ô  24 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /zonas ÔåÆ 401 without token (9ms)
+  Ô£ô  25 playwright-tests\01-auth.spec.ts:175:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /ranking/activo ÔåÆ 401 without token (2ms)
+  Ô£ô  26 playwright-tests\01-auth.spec.ts:181:7 ÔÇ║ Security: protected routes without token ÔÇ║ GET /kpis/admin ÔåÆ 401 without token (2ms)
+  Ô£ô  27 playwright-tests\01-auth.spec.ts:188:7 ÔÇ║ Security: tampered / expired JWT ÔÇ║ returns 401 on obviously forged token (2ms)
+  Ô£ô  28 playwright-tests\01-auth.spec.ts:196:7 ÔÇ║ Security: tampered / expired JWT ÔÇ║ returns 401 on malformed Bearer header (2ms)
+  Ô£ô  29 playwright-tests\01-auth.spec.ts:203:7 ÔÇ║ Security: tampered / expired JWT ÔÇ║ returns 401 on empty Bearer value (9ms)
+
+
+  1) playwright-tests\01-auth.spec.ts:16:7 ÔÇ║ POST /auth/login ÔÇ║ returns 2xx + tokens on valid admin credentials 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoHaveProperty[2m([22m[32mpath[39m[2m)[22m
+
+    Expected path: [32m"accessToken"[39m
+    Received path: [31m[][39m
+
+    Received value: [31m{"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyOGJhYWU1ZS0xNjZiLTRiMzctOWRjNS1mNDAwOTMyZjZjMTYiLCJlbWFpbCI6ImFkbWluQGNybXNlZ3Vyb3MuY29tIiwiaWF0IjoxNzczMTk5OTA0LCJleHAiOjE3NzMyMDA4MDR9.mwqaLkF7oIQ_0wW3YJPdDvR7cZeFFAkXU_wde7QIEqw", "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIyOGJhYWU1ZS0xNjZiLTRiMzctOWRjNS1mNDAwOTMyZjZjMTYiLCJlbWFpbCI6ImFkbWluQGNybXNlZ3Vyb3MuY29tIiwiaWF0IjoxNzczMTk5OTA0LCJleHAiOjE3NzM4MDQ3MDR9.fZcCg_MWu42ti3M95jEAZPmioPNjCRsjqs_FeGIle7g"}[39m
+
+      21 |     const body = await res.json();
+      22 |     // Backend returns camelCase: { accessToken, refreshToken }
+    > 23 |     expect(body).toHaveProperty('accessToken');
+         |                  ^
+      24 |     expect(body).toHaveProperty('refreshToken');
+      25 |     expect(typeof body.accessToken).toBe('string');
+      26 |     expect(body.accessToken.length).toBeGreaterThan(20);
+        at C:\Users\viche\Desktop\crm\backend\playwright-tests\01-auth.spec.ts:23:18
+
+  2) playwright-tests\01-auth.spec.ts:29:7 ÔÇ║ POST /auth/login ÔÇ║ returns 2xx + tokens on valid vendedor credentials 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoHaveProperty[2m([22m[32mpath[39m[2m)[22m
+
+    Expected path: [32m"accessToken"[39m
+    Received path: [31m[][39m
+
+    Received value: [31m{"access_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMTc0MjdjYy04NDRlLTQxYmUtYmUzZi1hNDhlNjZmZjE5ODkiLCJlbWFpbCI6InZlbmRlZG9yQGNybXNlZ3Vyb3MuY29tIiwiaWF0IjoxNzczMTk5OTA1LCJleHAiOjE3NzMyMDA4MDV9.CoclGuVZAT5qKofrEHhEC6J-z3-DTEGvO3uTb90HLEk", "refresh_token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiJmMTc0MjdjYy04NDRlLTQxYmUtYmUzZi1hNDhlNjZmZjE5ODkiLCJlbWFpbCI6InZlbmRlZG9yQGNybXNlZ3Vyb3MuY29tIiwiaWF0IjoxNzczMTk5OTA1LCJleHAiOjE3NzM4MDQ3MDV9.-bNC-_jyOMDqR9UNKAbyQ7HBZCy57CWNW_mIvblcmDc"}[39m
+
+      33 |     expect(res.ok()).toBe(true);
+      34 |     const body = await res.json();
+    > 35 |     expect(body).toHaveProperty('accessToken');
+         |                  ^
+      36 |     expect(body).toHaveProperty('refreshToken');
+      37 |   });
+      38 |
+        at C:\Users\viche\Desktop\crm\backend\playwright-tests\01-auth.spec.ts:35:18
+
+  3) playwright-tests\01-auth.spec.ts:102:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns new token pair on valid refresh token 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBe[2m([22m[32mexpected[39m[2m) // Object.is equality[22m
+
+    Expected: [32mtrue[39m
+    Received: [31mfalse[39m
+
+      105 |       data: { email: 'admin@crmseguros.com', password: 'Admin1234!' },
+      106 |     });
+    > 107 |     expect(loginRes.ok()).toBe(true);
+          |                           ^
+      108 |     const loginBody = await loginRes.json();
+      109 |     // Backend returns camelCase: { accessToken, refreshToken }
+      110 |     const refreshToken = loginBody.refreshToken;
+        at C:\Users\viche\Desktop\crm\backend\playwright-tests\01-auth.spec.ts:107:27
+
+  3 failed
+    playwright-tests\01-auth.spec.ts:16:7 ÔÇ║ POST /auth/login ÔÇ║ returns 2xx + tokens on valid admin credentials 
+    playwright-tests\01-auth.spec.ts:29:7 ÔÇ║ POST /auth/login ÔÇ║ returns 2xx + tokens on valid vendedor credentials 
+    playwright-tests\01-auth.spec.ts:102:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns new token pair on valid refresh token 
+  26 passed (5.0s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m

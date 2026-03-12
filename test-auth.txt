@@ -1,0 +1,58 @@
+﻿
+Running 29 tests using 1 worker
+
+  Ô£ô   1 playwright-tests\01-auth.spec.ts:16:7 ÔÇ║ POST /auth/login ÔÇ║ returns 2xx + tokens on valid admin credentials (531ms)
+  Ô£ô   2 playwright-tests\01-auth.spec.ts:28:7 ÔÇ║ POST /auth/login ÔÇ║ returns 2xx + tokens on valid vendedor credentials (258ms)
+  Ô£ô   3 playwright-tests\01-auth.spec.ts:38:7 ÔÇ║ POST /auth/login ÔÇ║ returns 401 on wrong password (116ms)
+  Ô£ô   4 playwright-tests\01-auth.spec.ts:45:7 ÔÇ║ POST /auth/login ÔÇ║ returns 401 on non-existent email (69ms)
+  Ô£ô   5 playwright-tests\01-auth.spec.ts:52:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on missing email (3ms)
+  Ô£ô   6 playwright-tests\01-auth.spec.ts:59:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on missing password (2ms)
+  Ô£ô   7 playwright-tests\01-auth.spec.ts:66:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on password too short (< 6 chars) (3ms)
+  Ô£ô   8 playwright-tests\01-auth.spec.ts:73:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on invalid email format (3ms)
+  Ô£ô   9 playwright-tests\01-auth.spec.ts:80:7 ÔÇ║ POST /auth/login ÔÇ║ returns 400 on empty body (3ms)
+  Ô£ô  10 playwright-tests\01-auth.spec.ts:85:7 ÔÇ║ POST /auth/login ÔÇ║ response does not leak passwordHash (248ms)
+  Ô£ÿ  11 playwright-tests\01-auth.spec.ts:101:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns new token pair on valid refresh token (248ms)
+  Ô£ô  12 playwright-tests\01-auth.spec.ts:123:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns 4xx on invalid refresh token string (151ms)
+  Ô£ô  13 playwright-tests\01-auth.spec.ts:130:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns 4xx on missing refreshToken field (5ms)
+  Ô£ô  14 playwright-tests\01-auth.spec.ts:139:7 ÔÇ║ POST /auth/logout ÔÇ║ returns 2xx on valid logout and token becomes invalid (588ms)
+  Ô£ô  15 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /users/me ÔåÆ 401 without token (7ms)
+  Ô£ô  16 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /leads ÔåÆ 401 without token (2ms)
+  Ô£ô  17 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /ventas ÔåÆ 401 without token (2ms)
+  Ô£ô  18 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /kpis/dashboard ÔåÆ 401 without token (2ms)
+  Ô£ô  19 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /clientes ÔåÆ 401 without token (6ms)
+  Ô£ô  20 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /consultas ÔåÆ 401 without token (2ms)
+  Ô£ô  21 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /noticias ÔåÆ 401 without token (2ms)
+  Ô£ô  22 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /documentos ÔåÆ 401 without token (2ms)
+  Ô£ô  23 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /notificaciones ÔåÆ 401 without token (2ms)
+  Ô£ô  24 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /zonas ÔåÆ 401 without token (2ms)
+  Ô£ô  25 playwright-tests\01-auth.spec.ts:176:9 ÔÇ║ Security: protected routes without token ÔÇ║ GET /ranking/activo ÔåÆ 401 without token (3ms)
+  Ô£ô  26 playwright-tests\01-auth.spec.ts:182:7 ÔÇ║ Security: protected routes without token ÔÇ║ GET /kpis/admin ÔåÆ 401 without token (2ms)
+  Ô£ô  27 playwright-tests\01-auth.spec.ts:189:7 ÔÇ║ Security: tampered / expired JWT ÔÇ║ returns 401 on obviously forged token (2ms)
+  Ô£ô  28 playwright-tests\01-auth.spec.ts:197:7 ÔÇ║ Security: tampered / expired JWT ÔÇ║ returns 401 on malformed Bearer header (2ms)
+  Ô£ô  29 playwright-tests\01-auth.spec.ts:204:7 ÔÇ║ Security: tampered / expired JWT ÔÇ║ returns 401 on empty Bearer value (2ms)
+
+
+  1) playwright-tests\01-auth.spec.ts:101:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns new token pair on valid refresh token 
+
+    Error: [2mexpect([22m[31mreceived[39m[2m).[22mtoBeLessThan[2m([22m[32mexpected[39m[2m)[22m
+
+    Expected: < [32m300[39m
+    Received:   [31m500[39m
+
+      106 |     // Login might return 200 or 201 depending on NestJS @HttpCode
+      107 |     expect(loginRes.status()).toBeGreaterThanOrEqual(200);
+    > 108 |     expect(loginRes.status()).toBeLessThan(300);
+          |                               ^
+      109 |     const loginBody = await loginRes.json();
+      110 |     // SnakeCaseInterceptor transforms all responses to snake_case
+      111 |     const refreshToken = loginBody.refresh_token;
+        at C:\Users\viche\Desktop\crm\backend\playwright-tests\01-auth.spec.ts:108:31
+
+  1 failed
+    playwright-tests\01-auth.spec.ts:101:7 ÔÇ║ POST /auth/refresh ÔÇ║ returns new token pair on valid refresh token 
+  28 passed (4.0s)
+
+To open last HTML report run:
+[36m[39m
+[36m  npx playwright show-report[39m
+[36m[39m
